@@ -21,10 +21,12 @@ add_filter('query_vars', function($vars) {
 // Fix front-page routing when query vars (e.g. ?lang=en) cause WordPress to 404
 add_action('parse_query', function($wp_query) {
     if (!is_admin() && $wp_query->is_main_query()) {
+        // Only fix when query vars are present AND we're at the root
+        $has_query = !empty($_SERVER['QUERY_STRING']);
         $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-        if ($uri === '/' || $uri === '' || $uri === '/index.php') {
-            $wp_query->is_home = true;
-            $wp_query->is_front_page = true;
+        if ($has_query && ($uri === '/' || $uri === '' || $uri === '/index.php')) {
+            $wp_query->is_home = false;        // don't treat as blog listing
+            $wp_query->is_front_page = true;   // force front page
             $wp_query->is_404 = false;
             $wp_query->is_archive = false;
             $wp_query->is_singular = false;
