@@ -5,6 +5,10 @@
       "destination": "/wp/$1.$2"
     },
     {
+      "source": "/api/debug",
+      "destination": "/api/debug.js"
+    },
+    {
       "source": "/(.*)",
       "destination": "/api/vercel.js"
     }
