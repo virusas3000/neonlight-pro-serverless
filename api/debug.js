@@ -8,10 +8,11 @@ module.exports = async (req, res) => {
       SKIP_MYSQL_SSL: process.env.SKIP_MYSQL_SSL || 'missing',
       VERCEL: process.env.VERCEL || 'missing',
     },
-    headers: req.headers,
+    headers: Object.keys(req.headers),
     url: req.url,
   };
 
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).json(results);
+  res.statusCode = 200;
+  res.end(JSON.stringify(results, null, 2));
 };
