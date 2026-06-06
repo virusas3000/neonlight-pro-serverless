@@ -18,7 +18,21 @@ add_filter('query_vars', function($vars) {
     return $vars;
 });
 
-// Force front-page.php for the homepage even with query vars like ?lang=zh
+// Fix front-page routing when query vars (e.g. ?lang=en) cause WordPress to 404
+add_action('parse_query', function($wp_query) {
+    if (!is_admin() && $wp_query->is_main_query()) {
+        $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        if ($uri === '/' || $uri === '' || $uri === '/index.php') {
+            $wp_query->is_home = true;
+            $wp_query->is_front_page = true;
+            $wp_query->is_404 = false;
+            $wp_query->is_archive = false;
+            $wp_query->is_singular = false;
+        }
+    }
+}, 1);
+
+// Force custom templates with high priority to override WooCommerce
 add_filter('template_include', function($template) {
     // Use REQUEST_URI instead of is_front_page() which fails with query vars on Vercel
     if (isset($_SERVER['REQUEST_URI'])) {
@@ -32,11 +46,6 @@ add_filter('template_include', function($template) {
         $front = get_template_directory() . '/front-page.php';
         if (file_exists($front)) return $front;
     }
-    return $template;
-}, 1);
-
-// Force custom templates with high priority to override WooCommerce
-add_filter('template_include', function($template) {
     if (is_page(13)) {
         $about_template = get_template_directory() . '/page-about.php';
         if (file_exists($about_template)) return $about_template;
