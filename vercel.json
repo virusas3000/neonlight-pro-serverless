@@ -28,6 +28,9 @@
     "api/vercel.js": {
       "includeFiles": "wp/**",
       "maxDuration": 60
+    },
+    "api/debug.js": {
+      "maxDuration": 10
     }
   },
   "build": {
