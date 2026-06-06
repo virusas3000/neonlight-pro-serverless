@@ -67,9 +67,6 @@ ul, ol { list-style:none; }
 @media (max-width:768px) {
 	.nl-nav { display:none; }
 	.nl-mobile-toggle { display:block; }
-	.nl-header { background:#0a0a0f; border-bottom:none; }
-	.nl-mobile-toggle span { background:#fff; }
-	.nl-bag-btn { color:#fff; }
 }
 
 .nl-hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--nl-white); overflow:hidden; }
