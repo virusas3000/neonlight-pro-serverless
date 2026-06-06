@@ -106,6 +106,7 @@ if (!isset($_ENV['SKIP_MYSQL_SSL'])) {
 }
 
 $_SERVER['HTTPS'] = 'on';
+$_SERVER['SERVER_PORT'] = '443';    // prevent internal :8000 from leaking into URLs
 
 // Inject the true host.
 $headers = getallheaders();

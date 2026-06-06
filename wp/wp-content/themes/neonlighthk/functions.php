@@ -20,6 +20,14 @@ add_filter('query_vars', function($vars) {
 
 // Force front-page.php for the homepage even with query vars like ?lang=zh
 add_filter('template_include', function($template) {
+    // Use REQUEST_URI instead of is_front_page() which fails with query vars on Vercel
+    if (isset($_SERVER['REQUEST_URI'])) {
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        if ($uri === '/' || $uri === '' || $uri === '/index.php') {
+            $front = get_template_directory() . '/front-page.php';
+            if (file_exists($front)) return $front;
+        }
+    }
     if (is_front_page()) {
         $front = get_template_directory() . '/front-page.php';
         if (file_exists($front)) return $front;
