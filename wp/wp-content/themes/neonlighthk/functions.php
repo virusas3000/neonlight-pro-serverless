@@ -10,6 +10,9 @@ require_once get_template_directory() . '/inc/translations.php';
 // Load custom post types
 require_once get_template_directory() . '/inc/cpt.php';
 
+// Admin language picker for all posts, CPTs, and WooCommerce products
+require_once get_template_directory() . '/inc/admin-lang-picker.php';
+
 // Register ?lang= query var so WordPress doesn't 404 on ?lang=zh / ?lang=en / ?lang=cn
 add_filter('query_vars', function($vars) {
     $vars[] = 'lang';
@@ -434,6 +437,15 @@ function nl_translate_document_title($parts) {
     }
     if (is_product()) {
         $parts['title'] = get_the_title() . ' – ' . nl_t('shop_title');
+    }
+    if (is_page_template('page-about-lookbook.php')) {
+        $parts['title'] = $lang === 'en' ? 'Lookbook & About Us' : ($lang === 'cn' ? '范例 & 关于我们' : '範例 & 關於我們');
+    }
+    if (is_page_template('page-about.php')) {
+        $parts['title'] = $lang === 'en' ? 'About Us' : ($lang === 'cn' ? '关于我们' : '關於我們');
+    }
+    if (is_page_template('page-projects.php')) {
+        $parts['title'] = $lang === 'en' ? 'Projects' : ($lang === 'cn' ? '活动' : '活動');
     }
     return $parts;
 }

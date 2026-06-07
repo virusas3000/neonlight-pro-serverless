@@ -69,13 +69,6 @@ ul, ol { list-style:none; }
 	.nl-mobile-toggle { display:block; }
 }
 
-@media (prefers-color-scheme: dark) {
-	.nl-header { background:#0a0a0f; border-bottom:1px solid rgba(255,255,255,0.1); }
-	.nl-logo, .nl-logo__neon, .nl-logo__sub { color:#fff; }
-	.nl-mobile-toggle span { background:#fff; }
-	.nl-bag-btn { color:#fff; }
-}
-
 .nl-hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--nl-white); overflow:hidden; }
 .nl-hero__bg { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
 .nl-hero__bg::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.6) 100%); }
