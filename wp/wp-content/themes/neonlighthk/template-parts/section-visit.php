@@ -9,7 +9,7 @@
 		<h2 class="nl-visit__title"><?php echo nl_t('visit_title'); ?><br><span class="nl-visit__at"><?php echo nl_t('visit_at'); ?></span><br><strong>-</strong></h2>
 		<div class="nl-visit__divider"></div>
 		<address class="nl-visit__address">
-			<?php echo nl_t('visit_addr1'); ?>
+			<a href="https://maps.app.goo.gl/fFxk8pyzwPGuxbV57?g_st=ac" target="_blank" rel="noopener"><?php echo nl_t('visit_addr1'); ?></a>
 		</address>
 	</div>
 	<div class="nl-visit__right">

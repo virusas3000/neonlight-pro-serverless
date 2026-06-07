@@ -63,6 +63,55 @@ $lang = nl_lang();
 <?php endif; ?>
 	</section>
 
+	<!-- Contact Section -->
+	<section class="nl-about-section nl-about-contact-section">
+		<div class="nl-contact-cards">
+			<div class="nl-contact-card">
+				<div class="nl-contact-icon">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+					</svg>
+				</div>
+				<div class="nl-contact-info">
+					<h4><?php echo nl_t('contact_phone'); ?></h4>
+					<a href="tel:+85261319328">61319328</a>
+				</div>
+			</div>
+			<div class="nl-contact-card">
+				<div class="nl-contact-icon">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+						<polyline points="22,6 12,13 2,6"/>
+					</svg>
+				</div>
+				<div class="nl-contact-info">
+					<h4><?php echo nl_t('contact_email'); ?></h4>
+					<a href="mailto:www.neonlight.pro@gmail.com">www.neonlight.pro@gmail.com</a>
+				</div>
+			</div>
+			<div class="nl-contact-card">
+				<div class="nl-contact-icon">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+						<circle cx="12" cy="10" r="3"/>
+					</svg>
+				</div>
+				<div class="nl-contact-info">
+					<h4><?php echo nl_t('visit_title'); ?></h4>
+					<span><a href="https://maps.app.goo.gl/fFxk8pyzwPGuxbV57?g_st=ac" target="_blank" rel="noopener"><?php echo nl_t('visit_addr1'); ?></a></span>
+				</div>
+			</div>
+		</div>
+		<div class="nl-contact-cta">
+			<a href="<?php echo esc_url( home_url('/projects/') ); ?>?lang=<?php echo nl_lang(); ?>" class="nl-contact-btn">
+				<?php if ($lang === 'en') : ?>View Our Projects
+				<?php elseif ($lang === 'cn') : ?>查看项目作品
+				<?php else : ?>查看項目作品
+				<?php endif; ?>
+			</a>
+		</div>
+	</section>
+
 	<!-- Lookbook / Gallery Section -->
 	<section class="nl-about-section">
 		<p class="nl-about-ig">
@@ -135,7 +184,21 @@ $lang = nl_lang();
 }
 .nl-about-contact { line-height: 1.8; }
 .nl-about-contact a { color: #00a896; }
-@media (max-width: 768px) {
+
+/* Contact Cards Section */
+.nl-contact-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:32px 0; }
+.nl-contact-card { background:#f8f8f8; border-radius:16px; padding:28px 24px; text-align:center; transition:all .3s ease; }
+.nl-contact-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+.nl-contact-icon { width:56px; height:56px; background:var(--nl-cyan); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; color:#fff; }
+.nl-contact-info h4 { font-size:.85rem; font-weight:600; color:#888; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; }
+.nl-contact-info a, .nl-contact-info span { font-size:1.05rem; color:#111; font-weight:500; word-break:break-all; }
+.nl-contact-info a:hover { color:var(--nl-cyan); }
+.nl-contact-cta { text-align:center; margin-top:32px; }
+.nl-contact-btn { display:inline-block; padding:14px 36px; background:var(--nl-cyan); color:#fff; font-weight:600; font-size:1rem; border-radius:999px; transition:all .3s ease; }
+.nl-contact-btn:hover { background:#00a896; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,212,176,.35); }
+@media (max-width:768px) {
+	.nl-contact-cards { grid-template-columns:1fr; }
+	.nl-contact-card { padding:24px 20px; }
 	.nl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
 	.nl-body { font-size: 1rem; }
 	.nl-programs-list { padding: 12px 14px; }
