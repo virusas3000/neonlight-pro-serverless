@@ -44,21 +44,21 @@ ul, ol { list-style:none; }
 	.nl-logo__sub { font-size:.95rem; }
 	.nl-topbar { font-size:15px; }
 }
-.nl-nav { width:100%; }
+.nl-nav { width:100%; background:#fff; margin:0 -20px; padding:0 20px; }
 .nl-nav .menu { display:flex; justify-content:center; gap:0; flex-wrap:wrap; }
-.nl-nav .menu li a { display:block; padding:12px 22px; font-family:var(--font-en); font-size:1.4rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#fff; position:relative; white-space:nowrap; }
-.nl-nav .menu li a::after { content:''; position:absolute; bottom:4px; left:18px; right:18px; height:1px; background:#fff; transform:scaleX(0); transition:var(--transition); }
+.nl-nav .menu li a { display:block; padding:12px 22px; font-family:var(--font-en); font-size:1.4rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--nl-black); position:relative; white-space:nowrap; }
+.nl-nav .menu li a::after { content:''; position:absolute; bottom:4px; left:18px; right:18px; height:1px; background:var(--nl-cyan); transform:scaleX(0); transition:var(--transition); }
 .nl-nav .menu li a:hover::after, .nl-nav .menu li.current-menu-item a::after { transform:scaleX(1); }
 .nl-header__actions { position:absolute; right:20px; top:50%; transform:translateY(-50%); }
 .nl-bag-btn { display:block; color:#fff; padding:8px; transition:var(--transition); }
 .nl-bag-btn:hover { color:#fff; opacity:.8; }
 .nl-mobile-toggle { display:none; position:absolute; left:16px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:8px; z-index:2; }
 .nl-mobile-toggle span { display:block; width:26px; height:3px; background:#fff; margin:5px 0; border-radius:2px; }
-.nl-mobile-menu { display:none; position:fixed; inset:0; background:#2563eb; z-index:9999; padding:60px 20px 20px; overflow-y:auto; }
+.nl-mobile-menu { display:none; position:fixed; inset:0; background:var(--nl-white); z-index:9999; padding:60px 20px 20px; overflow-y:auto; }
 .nl-mobile-menu.is-open { display:block; }
 .nl-mobile-menu ul { display:flex; flex-direction:column; gap:0; }
-.nl-mobile-menu ul li a { display:block; padding:10px 0; font-size:.95rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.2); line-height:1.4; color:#fff; }
-.nl-mobile-menu__close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer; padding:6px; color:#fff; }
+.nl-mobile-menu ul li a { display:block; padding:10px 0; font-size:.95rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; border-bottom:1px solid rgba(0,0,0,0.06); line-height:1.4; color:var(--nl-black); }
+.nl-mobile-menu__close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer; padding:6px; color:var(--nl-black); }
 @media (max-width:768px) {
 	.nl-hero { height:50vh; min-height:400px; }
 	.nl-hero__headline { font-size:clamp(2.2rem,8vw,4rem); }
